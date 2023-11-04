@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a8df1d21-5e60-4362-8b4c-bdd711771c12/resourceGroups/amatta1-rg/providers/Microsoft.Web/sites/WeaponDetectionServerApp",
+    "appService.deploySubpath": "dist\\weapon-detection-server-app"
+}
