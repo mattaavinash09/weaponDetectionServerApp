@@ -10,7 +10,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon'; 
 
 
 @NgModule({
@@ -26,7 +28,10 @@ import { AboutComponent } from './about/about.component';
     MatFormFieldModule,
     MatTableModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
+import {WeaponDetected} from 'src/app/Models/weapon.detected';
 export interface PeriodicElement {
   location: string;
   detection: string;
@@ -38,12 +38,13 @@ export class DashboardComponent implements OnInit {
   showBlobs() {
     // this.showLoader = true;
      debugger
-     this.http.get<string[]>(this.url + '/listfiles')
+     this.http.get<WeaponDetected[]>(this.url)
        .subscribe({
          next: (result) => {
           debugger
-          result?.forEach(element => {
-            ELEMENT_DATA.push({detection: containerPath+element, location: 'Houston', alertSentTo: '', time: '2023-10-15 12:10:10'});
+          result?.forEach(ele => {
+            ELEMENT_DATA.push({detection: containerPath+ele.fileName
+              , location: ele.location, alertSentTo: ele.alertReceiver, time: ele.insertedOn});
            });
            this.dataSource = new MatTableDataSource(ELEMENT_DATA);
          },

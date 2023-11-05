@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Weapon Detection</title>
+  <!-- <title>Weapon Detection</title> -->
+
 </head>
 <body>
+  
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Weapon Detection .</span>
+    
+        <!-- Add a spacer to push links to the right -->
+        <span class="example-spacer"></span>
+    
+        <!-- Add your links that should float to the right -->
+        <!-- <a mat-button routerLink="/dashboard">Dashboard</a>
+        <a mat-button routerLink="/about">About</a> -->
+
+        <div class="centered-icons">
+          <a mat-button routerLink="/dashboard">Dashboard</a>
+          <a mat-button routerLink="/about">About</a>
+        </div>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+
     <div class="container d-flex align-items-center justify-content-between col-12">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Weapon Detection<span>.</span></h1>
-      </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a routerLink="/dashboard">Dashboard</a></li>
-          <li><a routerLink="/about">About</a></li>
-        </ul>
-      </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
   <router-outlet></router-outlet>
