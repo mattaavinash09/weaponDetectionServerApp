@@ -13,7 +13,7 @@ export interface PeriodicElement {
   time: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] =[];
+const ELEMENT_DATA: WeaponDetected[] =[];
 const containerPath = 'https://demotestml0100163724.blob.core.windows.net/avicontainer/';
 
 @Component({
@@ -22,7 +22,7 @@ const containerPath = 'https://demotestml0100163724.blob.core.windows.net/avicon
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns: string[] = ['detection', 'location', 'alertSentTo', 'time'];
+  displayedColumns: string[] = ['detection', 'location', 'alertReceiver', 'time','isAlertSent'];
  
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -43,8 +43,13 @@ export class DashboardComponent implements OnInit {
          next: (result) => {
           debugger
           result?.forEach(ele => {
-            ELEMENT_DATA.push({detection: containerPath+ele.fileName
-              , location: ele.location, alertSentTo: ele.alertReceiver, time: ele.insertedOn});
+            ELEMENT_DATA.push({fileName: containerPath+ele.fileName
+              , location: ele.location
+              , alertReceiver: ele.alertReceiver
+              , time: ele.insertedOn
+              ,isAlertSent: ele.isAlertSent
+              ,userId: ele.userId
+              ,insertedOn: ele.insertedOn});
            });
            this.dataSource = new MatTableDataSource(ELEMENT_DATA);
          },

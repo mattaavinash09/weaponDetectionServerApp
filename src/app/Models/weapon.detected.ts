@@ -5,4 +5,5 @@ export interface WeaponDetected {
     alertReceiver: string;
     userId: string;
     insertedOn: string;
+    time: string;
 }
