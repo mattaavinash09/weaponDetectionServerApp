@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SendAlertComponent {
   private apiUrl = environment.baseUrl + 'api/SendEmailAlert';
+  containerPath: string = 'https://demotestml0100163724.blob.core.windows.net/avicontainer/';
   public popupData: WeaponDetected;
   constructor(
     private http: HttpClient,
