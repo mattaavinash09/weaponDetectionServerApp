@@ -12,14 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon'; 
-
-
+import {MatIconModule} from '@angular/material/icon';
+import { SendAlertComponent } from './send-alert/send-alert.component'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    AboutComponent
+    AboutComponent,
+    SendAlertComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,9 @@ import {MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

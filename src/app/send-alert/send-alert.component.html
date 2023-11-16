@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Send Email Alert</h2>
+<mat-dialog-content class="mat-typography">
+  To <input type="text" [(ngModel)]="popupData.alertReceiver" id="txtTo" />
+  
+  <p>
+    <br />
+    A Weapon detected at location: <b> {{popupData.location}} </b>
+  </p>
+  <img src="{{popupData.fileName}}" width="200" height="250" />
+</mat-dialog-content> 
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="sendAlert(popupData)">Send</button>
+</mat-dialog-actions>

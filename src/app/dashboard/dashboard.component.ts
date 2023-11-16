@@ -6,6 +6,8 @@ import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {WeaponDetected} from 'src/app/Models/weapon.detected';
+import { MatDialog } from '@angular/material/dialog';
+import { SendAlertComponent } from '../send-alert/send-alert.component';
 export interface PeriodicElement {
   location: string;
   detection: string;
@@ -22,14 +24,15 @@ const containerPath = 'https://demotestml0100163724.blob.core.windows.net/avicon
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns: string[] = ['detection', 'location', 'alertReceiver', 'time','isAlertSent'];
+  displayedColumns: string[] = ['detection', 'location', 'alertReceiver', 'time','isAlertSent', 'action'];
  
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   private url = environment.baseUrl + 'api/Items';
   files: string[] = [];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient
+    ,public dialog: MatDialog) { }
 
   ngOnInit() {
     this.showBlobs();
@@ -49,7 +52,8 @@ export class DashboardComponent implements OnInit {
               , time: ele.insertedOn
               ,isAlertSent: ele.isAlertSent
               ,userId: ele.userId
-              ,insertedOn: ele.insertedOn});
+              ,insertedOn: ele.insertedOn
+            ,id: ele.id});
            });
            this.dataSource = new MatTableDataSource(ELEMENT_DATA);
          },
@@ -66,4 +70,16 @@ export class DashboardComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  openDialog(element: WeaponDetected): void {
+    const dialogRef = this.dialog.open(SendAlertComponent, {
+      width: '800px',
+      data: element
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 }
