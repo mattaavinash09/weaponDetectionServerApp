@@ -33,7 +33,6 @@ export class SendAlertComponent {
   }
   sendAlert(popUpData: WeaponDetected): void{
     this.dialogRef.close(popUpData);
-    window.alert("Alert sent to "+popUpData.id);  
     // this.apiUrl = 'http://localhost:5186/api/SendEmailAlert/SendAlert';
     // this.http.post<any>(`${this.apiUrl}`, popUpData).subscribe(data => {  
     //   console.log(data);
@@ -47,7 +46,7 @@ export class SendAlertComponent {
       next: (result) => {
        debugger
    
-         alert("Alert sent to "+popUpData.id);
+         alert("Alert sent to "+popUpData.alertReceiver);
       },
       error: (err) => {
         console.error(err);

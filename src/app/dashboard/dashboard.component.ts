@@ -16,7 +16,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: WeaponDetected[] =[];
-const containerPath = 'https://demotestml0100163724.blob.core.windows.net/avicontainer/';
+ 
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +25,7 @@ const containerPath = 'https://demotestml0100163724.blob.core.windows.net/avicon
 })
 export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['detection', 'location', 'alertReceiver', 'time','isAlertSent', 'action'];
- 
+  containerPath: string = 'https://demotestml0100163724.blob.core.windows.net/avicontainer/';
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
          next: (result) => {
           debugger
           result?.forEach(ele => {
-            ELEMENT_DATA.push({fileName: containerPath+ele.fileName
+            ELEMENT_DATA.push({fileName: ele.fileName
               , location: ele.location
               , alertReceiver: ele.alertReceiver
               , time: ele.insertedOn
