@@ -39,15 +39,15 @@ export class SendAlertComponent {
     //   console.log(data);
     // });
 
-
+    
+    // https://weapondetectionserver.azurewebsites.net
     this.http.post<WeaponDetected[]>('https://weapondetectionserver.azurewebsites.net/api/SendEmailAlert/SendAlert'
     ,popUpData
     ,{headers: {'Content-Type': 'application/json'}})
     .subscribe({
       next: (result) => {
-       debugger
    
-         alert("Alert sent to "+popUpData.alertReceiver);
+         alert(result);
       },
       error: (err) => {
         console.error(err);
