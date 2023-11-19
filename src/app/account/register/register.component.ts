@@ -27,7 +27,8 @@ export class RegisterComponent implements OnInit {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         userName: ['', Validators.required],
-        password: ['', [Validators.required, Validators.minLength(6)]]
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        role: ['admin']
     });
   }
 
@@ -47,6 +48,8 @@ export class RegisterComponent implements OnInit {
         return;
     }
 
+    console.log(this.form.value);
+  return;
     this.loading = true;
           // get return url from query parameters or default to home page
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
