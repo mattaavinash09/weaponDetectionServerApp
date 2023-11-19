@@ -14,9 +14,10 @@
         <!-- Add a spacer to push links to the right -->
         <span class="example-spacer"></span>
     
-        <div class="centered-icons">
+        <div class="centered-icons" *ngIf="showDivHeader">
           <a mat-button routerLink="/dashboard">Dashboard</a>
           <a mat-button routerLink="/about">About</a>
+          <a mat-button (click)="logout()">Logout</a>
         </div>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

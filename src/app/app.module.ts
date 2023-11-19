@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { SendAlertComponent } from './send-alert/send-alert.component'; 
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

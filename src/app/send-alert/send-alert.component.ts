@@ -34,20 +34,11 @@ export class SendAlertComponent {
   }
   sendAlert(popUpData: WeaponDetected): void{
     this.dialogRef.close(popUpData);
-    // this.apiUrl = 'http://localhost:5186/api/SendEmailAlert/SendAlert';
-    // this.http.post<any>(`${this.apiUrl}`, popUpData).subscribe(data => {  
-    //   console.log(data);
-    // });
-
-    
-    // https://weapondetectionserver.azurewebsites.net
     this.http.post<WeaponDetected[]>('https://weapondetectionserver.azurewebsites.net/api/SendEmailAlert/SendAlert'
-    ,popUpData
-    ,{headers: {'Content-Type': 'application/json'}})
+    ,popUpData)
     .subscribe({
-      next: (result) => {
-   
-         alert(result);
+      next: (result: any) => {
+         alert(result.message);
       },
       error: (err) => {
         console.error(err);

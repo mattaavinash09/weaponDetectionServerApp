@@ -40,11 +40,9 @@ export class DashboardComponent implements OnInit {
 
   showBlobs() {
     // this.showLoader = true;
-     debugger
      this.http.get<WeaponDetected[]>(this.url)
        .subscribe({
          next: (result) => {
-          debugger
           result?.forEach(ele => {
             ELEMENT_DATA.push({fileName: ele.fileName
               , location: ele.location
