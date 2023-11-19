@@ -29,7 +29,8 @@ export class DashboardComponent implements OnInit {
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  private url = environment.baseUrl + 'api/Items';
+  private url =  `${environment.baseUrl}/api/Items`;
+ 
   files: string[] = [];
   constructor(private http: HttpClient
     ,public dialog: MatDialog) { }
