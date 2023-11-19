@@ -15,7 +15,7 @@ export class AccountService {
     this.user = this.userSubject.asObservable();}
 
   login(username: string, password: string) {
-    return this.http.post<User>(`${environment.baseUrl}/UserInfo/login`, {userName: username,password: password })
+    return this.http.post<User>(`${environment.baseUrl}/api/UserInfo/login`, {userName: username,password: password })
     .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('user', JSON.stringify(user));
@@ -25,7 +25,7 @@ export class AccountService {
 
 }
 register(user: User) {
-  return this.http.post(`${environment.baseUrl}/UserInfo`, user);
+  return this.http.post(`${environment.baseUrl}/api/UserInfo`, user);
 }
 
 public get userValue() {

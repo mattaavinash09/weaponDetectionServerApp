@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./send-alert.component.css']
 })
 export class SendAlertComponent {
-  private apiUrl = environment.baseUrl + 'api/SendEmailAlert';
   containerPath: string = 'https://demotestml0100163724.blob.core.windows.net/avicontainer/';
   public popupData: WeaponDetected;
   constructor(
@@ -34,7 +33,7 @@ export class SendAlertComponent {
   }
   sendAlert(popUpData: WeaponDetected): void{
     this.dialogRef.close(popUpData);
-    this.http.post<WeaponDetected[]>('https://weapondetectionserver.azurewebsites.net/api/SendEmailAlert/SendAlert'
+    this.http.post<WeaponDetected[]>(`${environment.baseUrl}/api/SendEmailAlert/SendAlert`
     ,popUpData)
     .subscribe({
       next: (result: any) => {
