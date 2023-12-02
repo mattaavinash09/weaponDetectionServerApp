@@ -47,9 +47,6 @@ export class RegisterComponent implements OnInit {
     if (this.form.invalid) {
         return;
     }
-
-    console.log(this.form.value);
-  return;
     this.loading = true;
           // get return url from query parameters or default to home page
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
